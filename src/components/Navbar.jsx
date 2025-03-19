@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -29,7 +30,7 @@ const NavLogo = styled(Link)`
   width: 80%;
   padding: 0 6px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
   color: inherit;
 `;
@@ -42,7 +43,6 @@ const NavItems = styled.ul`
   gap: 32px;
   padding: 0 6px;
   list-style: none;
-
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -50,7 +50,7 @@ const NavItems = styled.ul`
 
 const NavLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -89,11 +89,54 @@ const GithubButton = styled.a`
   }
 `;
 
+const MobileIcon = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.text_primary};
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+`;
+
+const MobilMenu = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+  padding: 0 6px;
+  list-style: none;
+  padding: 12px 40px 24px 40px;
+  background: ${({ theme }) => theme.card_light + 99};
+  position: absolute;
+  top: 80px;
+  right: 0;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  transition: all 0.6s ease-in-out;
+  transform: ${({ isOpen }) =>
+    isOpen ? "translateY(0)" : "translateY(-100%)"};
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
+  z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
+`;
+
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const theme = useTheme();
+
   return (
     <Nav>
       <NavbarContainer>
         <NavLogo to="/">AydinHuseynov</NavLogo>
+
+        <MobileIcon onClick={() => setIsOpen(!isOpen)}>
+          <MenuRoundedIcon style={{ color: "inherit" }} />
+        </MobileIcon>
 
         <NavItems>
           <NavLink href="#About">About</NavLink>
@@ -102,6 +145,27 @@ export const Navbar = () => {
           <NavLink href="#Project">Project</NavLink>
           <NavLink href="#Education">Education</NavLink>
         </NavItems>
+
+        {isOpen && (
+          <MobilMenu isOpen={isOpen}>
+            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#About">About</NavLink>
+            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Skills">Skills</NavLink>
+            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Experience">Experience</NavLink>
+            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Project">Project</NavLink>
+            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Education">Education</NavLink>
+            <GithubButton
+              href={Bio.github}
+              target="_blank"
+              style={{
+                background: theme.primary,
+                color: theme.text_primary,
+                marginLeft:"-5px"
+              }}
+            >
+              Github Profile
+            </GithubButton>
+          </MobilMenu>
+        )}
 
         <ButtonContainer>
           <GithubButton href={Bio.github} target="_blank">
