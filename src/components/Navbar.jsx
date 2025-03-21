@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -135,7 +136,11 @@ export const Navbar = () => {
         <NavLogo to="/">AydinHuseynov</NavLogo>
 
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>
-          <MenuRoundedIcon style={{ color: "inherit" }} />
+          {!isOpen ? (
+            <MenuRoundedIcon style={{ color: "inherit" }} />
+          ) : (
+            <CloseRoundedIcon style={{ color: "inherit" }} />
+          )}
         </MobileIcon>
 
         <NavItems>
@@ -148,18 +153,28 @@ export const Navbar = () => {
 
         {isOpen && (
           <MobilMenu isOpen={isOpen}>
-            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#About">About</NavLink>
-            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Skills">Skills</NavLink>
-            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Experience">Experience</NavLink>
-            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Project">Project</NavLink>
-            <NavLink onClick={()=>setIsOpen(!isOpen)} href="#Education">Education</NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#About">
+              About
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
+              Skills
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">
+              Experience
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Project">
+              Project
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
+              Education
+            </NavLink>
             <GithubButton
               href={Bio.github}
               target="_blank"
               style={{
                 background: theme.primary,
                 color: theme.text_primary,
-                marginLeft:"-5px"
+                marginLeft: "-5px",
               }}
             >
               Github Profile
