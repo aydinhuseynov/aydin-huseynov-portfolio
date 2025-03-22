@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
-import AboutImg from "../../images/AboutImg.jpg"
+import AboutImg from "../../images/AboutImg.jpg";
+import HeroBgAnimation from "../../HeroBgAnimation";
+import { Tilt } from "react-tilt";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -113,7 +115,7 @@ const SubTitle = styled.div`
   margin-bottom: 42px;
   color: ${({ theme }) => theme.text_primary + 95};
 
-    @media (max-width: 960px) {
+  @media (max-width: 960px) {
     text-align: center;
   }
 
@@ -208,13 +210,12 @@ const HeroBg = styled.div`
   }
 `;
 
-
 export const Hero = () => {
   return (
     <div id="about">
       <HeroContainer>
         <HeroBg>
-          <HeroBgAnimation/>
+          <HeroBgAnimation />
         </HeroBg>
         <HeroInnerContainer>
           <HeroLeftContainer>
@@ -238,7 +239,9 @@ export const Hero = () => {
           </HeroLeftContainer>
 
           <HeroRightContainer>
-            <Img src={AboutImg} alt="Aydin Huseynov"/>
+            <Tilt>
+              <Img src={AboutImg} alt="Aydin Huseynov" />
+            </Tilt>
           </HeroRightContainer>
         </HeroInnerContainer>
       </HeroContainer>
