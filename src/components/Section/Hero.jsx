@@ -1,10 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { Bio } from "../../data/constants";
+import { Bio } from "../../utils/data/constants";
 import Typewriter from "typewriter-effect";
 import AboutImg from "../../images/AboutImg.jpg";
-import HeroBgAnimation from "../../HeroBgAnimation";
+import HeroBgAnimation from "./HeroBgAnimation";
 import { Tilt } from "react-tilt";
+import { motion } from "framer-motion";
+import {
+  headContainerAnimation,
+  headContentAnimation,
+  headTextAnimation,
+} from "../../utils/motion";
+import StarCanvas from "../canvas/Stars"
 
 const HeroContainer = styled.div`
   display: flex;
@@ -215,35 +222,46 @@ export const Hero = () => {
     <div id="about">
       <HeroContainer>
         <HeroBg>
+        <StarCanvas />
           <HeroBgAnimation />
         </HeroBg>
-        <HeroInnerContainer>
-          <HeroLeftContainer>
-            <Title>
-              Hi, I am <br /> {Bio.name}
-            </Title>
-            <TextLoop>
-              I am a
-              <Span>
-                <Typewriter
-                  options={{
-                    strings: Bio.roles,
-                    autoStart: true,
-                    loop: true,
-                  }}
-                />
-              </Span>
-            </TextLoop>
-            <SubTitle>{Bio.description}</SubTitle>
-            <ResumeButton>Check My Resume </ResumeButton>
-          </HeroLeftContainer>
 
-          <HeroRightContainer>
-            <Tilt>
-              <Img src={AboutImg} alt="Aydin Huseynov" />
-            </Tilt>
-          </HeroRightContainer>
-        </HeroInnerContainer>
+        <motion.div {...headContainerAnimation}>
+          <HeroInnerContainer>
+            <HeroLeftContainer>
+              <motion.div {...headTextAnimation}>
+                <Title>
+                  Hi, I am <br /> {Bio.name}
+                </Title>
+                <TextLoop>
+                  I am a
+                  <Span>
+                    <Typewriter
+                      options={{
+                        strings: Bio.roles,
+                        autoStart: true,
+                        loop: true,
+                      }}
+                    />
+                  </Span>
+                </TextLoop>
+              </motion.div>
+
+              <motion.div {...headContentAnimation}>
+                <SubTitle>{Bio.description}</SubTitle>
+              </motion.div>
+              <ResumeButton>Check My Resume </ResumeButton>
+            </HeroLeftContainer>
+
+            <HeroRightContainer>
+              <motion.div {...headContentAnimation}>
+                <Tilt>
+                  <Img src={AboutImg} alt="Aydin Huseynov" />
+                </Tilt>
+              </motion.div>
+            </HeroRightContainer>
+          </HeroInnerContainer>
+        </motion.div>
       </HeroContainer>
     </div>
   );
