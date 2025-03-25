@@ -123,8 +123,6 @@ const SkillImage = styled.img`
   height: 24px;
 `;
 
-console.log(skills.image);
-
 export const Skilss = () => {
   return (
     <Container id="Skills">
