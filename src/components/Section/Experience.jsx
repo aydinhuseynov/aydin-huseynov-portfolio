@@ -59,7 +59,7 @@ export const Experince = () => {
       <Wrapper>
         <Title>Experience</Title>
         <Desc style={{ marginBottom: "20px" }}>
-          My work experience asa a software developer and 
+          My work experience as a software developer  
         </Desc>
         <VerticalTimeline>
           {
