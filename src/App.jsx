@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Hero } from "./components/Section/Hero";
 import { Skilss } from "./components/Section/Skills";
 import { Experince } from "./components/Section/Experience";
+import { Education } from "./components/Section/Education";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -24,6 +25,7 @@ function App() {
           <Hero />
           <Skilss/>
           <Experince/>
+          <Education/>
         </Body>
       </BrowserRouter>
     </ThemeProvider>
