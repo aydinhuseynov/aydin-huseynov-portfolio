@@ -6,14 +6,13 @@ import  Hero  from "./components/Section/Hero";
 import  Skilss  from "./components/Section/Skills";
 import  Experince  from "./components/Section/Experience";
 import  Education  from "./components/Section/Education";
-import StarCanva from "./components/canvas/Stars";
+import StyledStarsCanvas from "./components/canvas/Stars";
+
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   overflow-x: hidden;
-  position: relative;
-  z-index: 1;
 `;
 
 const Wrapper = styled.div`
@@ -39,7 +38,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Body>
-          <StarCanva/>
+          <StyledStarsCanvas/>
           <Hero />
           <Wrapper>
             <Skilss />
