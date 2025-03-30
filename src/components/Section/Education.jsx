@@ -53,7 +53,7 @@ const Desc = styled.div`
   }
 `;
 
-export const Education = () => {
+ const Education = () => {
   return (
     <Container id="Education">
       <Wrapper>

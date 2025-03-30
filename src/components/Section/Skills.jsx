@@ -123,7 +123,7 @@ const SkillImage = styled.img`
   height: 24px;
 `;
 
-export const Skilss = () => {
+ const Skilss = () => {
   return (
     <Container id="Skills">
       <Wrapper>
@@ -151,3 +151,4 @@ export const Skilss = () => {
     </Container>
   );
 };
+export default Skilss;

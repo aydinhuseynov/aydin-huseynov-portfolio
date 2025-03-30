@@ -1,12 +1,12 @@
 import styled, { ThemeProvider } from "styled-components";
 import { darkTheme } from "./utils/Themes";
-import { Navbar } from "./components/Section/Navbar";
+import  Navbar  from "./components/Section/Navbar";
 import { BrowserRouter } from "react-router-dom";
-import { Hero } from "./components/Section/Hero";
-import { Skilss } from "./components/Section/Skills";
-import { Experince } from "./components/Section/Experience";
-import { Education } from "./components/Section/Education";
-
+import  Hero  from "./components/Section/Hero";
+import  Skilss  from "./components/Section/Skills";
+import  Experince  from "./components/Section/Experience";
+import  Education  from "./components/Section/Education";
+import StarCanva from "./components/canvas/Stars";
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
@@ -39,6 +39,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Body>
+          <StarCanva/>
           <Hero />
           <Wrapper>
             <Skilss />

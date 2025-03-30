@@ -217,7 +217,7 @@ const HeroBg = styled.div`
   }
 `;
 
-export const Hero = () => {
+ const Hero = () => {
   return (
     <div id="About">
       <HeroContainer>
@@ -266,3 +266,4 @@ export const Hero = () => {
     </div>
   );
 };
+export default Hero;

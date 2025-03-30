@@ -12,6 +12,7 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   z-index: 1;
+  margin-top:50px;
 `;
 
 const Wrapper = styled.div`
@@ -53,7 +54,7 @@ const Desc = styled.div`
   }
 `;
 
-export const Experince = () => {
+ const Experince = () => {
   return (
     <Container id="Experience">
       <Wrapper>
@@ -72,3 +73,4 @@ export const Experince = () => {
     </Container>
   )
 }
+export default Experince;
