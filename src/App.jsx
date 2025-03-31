@@ -1,12 +1,13 @@
 import styled, { ThemeProvider } from "styled-components";
 import { darkTheme } from "./utils/Themes";
-import  Navbar  from "./components/Section/Navbar";
+import Navbar from "./components/Section/Navbar";
 import { BrowserRouter } from "react-router-dom";
-import  Hero  from "./components/Section/Hero";
-import  Skilss  from "./components/Section/Skills";
-import  Experince  from "./components/Section/Experience";
-import  Education  from "./components/Section/Education";
+import Hero from "./components/Section/Hero";
+import Skilss from "./components/Section/Skills";
+import Experince from "./components/Section/Experience";
+import Education from "./components/Section/Education";
 import StyledStarsCanvas from "./components/canvas/Stars";
+import Projects from "./components/Section/Projects";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -31,20 +32,22 @@ const Wrapper = styled.div`
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
 
-
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
         <Navbar />
         <Body>
-          <StyledStarsCanvas/>
+          <StyledStarsCanvas />
           <Hero />
           <Wrapper>
             <Skilss />
             <Experince />
           </Wrapper>
-          <Education />
+          <Projects/>
+          <Wrapper>
+            <Education />
+          </Wrapper>
         </Body>
       </BrowserRouter>
     </ThemeProvider>

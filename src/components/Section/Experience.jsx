@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { experiences } from '../../data/constants';
+import React from "react";
+import styled from "styled-components";
+import { experiences } from "../../data/constants";
 import ExperienceCard from "../cards/ExperienceCard";
-import { VerticalTimeline } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import { VerticalTimeline } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   z-index: 1;
-  margin-top:50px;
+  margin-top: 50px;
 `;
 
 const Wrapper = styled.div`
@@ -54,23 +54,25 @@ const Desc = styled.div`
   }
 `;
 
- const Experince = () => {
+const Experince = () => {
   return (
     <Container id="Experience">
       <Wrapper>
         <Title>Experience</Title>
-        <Desc style={{ marginBottom: "20px" }}>
-          My work experience as a software developer  
+        <Desc style={{ marginBottom: "40px" }}>
+          Every project I have worked on has been an opportunity to grow and
+          refine my skills as a developer. From coding dynamic web applications
+          to improving user experiences, my journey has been about continuous
+          learning and problem-solving.
         </Desc>
+
         <VerticalTimeline>
-          {
-            experiences.map((experience,index)=>(
-              <ExperienceCard key={index} experience={experience}/>
-            ))
-          }
+          {experiences.map((experience, index) => (
+            <ExperienceCard key={index} experience={experience} />
+          ))}
         </VerticalTimeline>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 export default Experince;
