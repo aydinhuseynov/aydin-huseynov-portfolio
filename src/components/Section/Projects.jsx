@@ -58,7 +58,7 @@ const ToggleButtonGroup = styled.div`
   border: 1.5px solid ${({ theme }) => theme.text_primary};
   color: ${({ theme }) => theme.text_primary};
   font-size: 16px;
-  boder-radius: 12px;
+  border-radius: 12px;
   font-weight: 500;
   margin: 22px;
 
@@ -69,7 +69,7 @@ const ToggleButtonGroup = styled.div`
 const ToggleButton = styled.div`
   padding: 8px 18px;
   border-radius: 6px;
-  ccursor: pointer;
+  cursor: pointer;
   &:hover {
     background: ${({ theme }) => theme.text_primary + 20};
   }
@@ -101,7 +101,7 @@ const CardContainer = styled.div`
 const Projects = () => {
   const [toggle, setToggle] = useState("all");
   return (
-    <Container id="Projects">
+    <Container id="Project">
       <Wrapper>
         <Title>Projects</Title>
         <Desc style={{ marginBottom: "40px" }}>
@@ -118,30 +118,28 @@ const Projects = () => {
           </ToggleButton>
           <Divider />
           <ToggleButton
+            active={toggle === "E-commerce"}
+            onClick={() => setToggle("E-commerce")}
+          >
+            E-commerce
+          </ToggleButton>
+          <Divider />
+          <ToggleButton
             active={toggle === "web app"}
             onClick={() => setToggle("web app")}
           >
             WEB APP`S
-          </ToggleButton>
-          <Divider />
-          <ToggleButton
-            active={toggle === "androind app"}
-            onClick={() => setToggle("androind app")}
-          >
-            Androind
-          </ToggleButton>
-          <Divider />
-          <ToggleButton
-            active={toggle === "machine learning"}
-            onClick={() => setToggle("machine learning")}
-          >
-            Machine learning
           </ToggleButton>
         </ToggleButtonGroup>
 
         <CardContainer>
           {toggle === "all" &&
             projects.map((project) => <ProjectCard project={project} />)}
+          {projects
+            .filter((item) => item.category === toggle)
+            .map((project) => (
+              <ProjectCard project={project} />
+            ))}
         </CardContainer>
       </Wrapper>
     </Container>
