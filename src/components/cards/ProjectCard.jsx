@@ -119,7 +119,7 @@ const ProjectCard = ({ project }) => {
       </Members>
       <Box sx={{display:"flex",justifyContent:"space-between"}}>
         <Button href={project.webapp} target="_blank">
-          View Webapp
+          {project.category == "web app" ? "View Webapp" : "View Website"}
         </Button>
         <Button href={project.github} target="_blank">
           View Code

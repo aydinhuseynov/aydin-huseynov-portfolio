@@ -1,4 +1,8 @@
 import { title } from "framer-motion/client";
+import RMstoreImage from "../images/rm-shop.webp";
+import XYZ_Image from "../images/XYZ.png";
+import CRM_Image from "../images/CRM_Image.png";
+import weather_app from "../images/weather.png";
 
 export const Bio = {
   name: "Aydin Huseynov",
@@ -188,32 +192,55 @@ export const projects = [
     title: "RMstore",
     date: "Jan 2024 - Dec 2023",
     description:
-      "A Rule Builder application “Decision Hub” that empowers Business Analysts to create, save, and visualize decision strategies. Provide a no-code rule writing experience and visual representation to test these rules in real-time and observe the calculations at each step.",
-    image:
-      "https://github.com/rishavchanda/DecisionHub/raw/master/assets/testRule.jpg",
-    tags: [
-      "React Js",
-      "PostgressSQL",
-      "Node Js",
-      "Express Js",
-      "Redux",
-      "React Flow",
-    ],
+      "RMstore is an e-commerce web application built using React and Vite, featuring state management with Redux, UI components from Material UI, and styling with Tailwind CSS. The project also integrates Email.js for email services.",
+    image: RMstoreImage,
     category: "E-commerce",
     github: "https://github.com/aydinhuseynov/RMstore",
     webapp: "https://rm-store.netlify.app/",
   },
   {
-    id: 5,
+    id: 1,
+    title: "XYZ Website",
+    date: "Jan 2024 - Dec 2023",
+    description:
+      "This is a React & Tailwind CSS project built to showcase a modern, responsive, and visually appealing web interface. The website demonstrates a clean design with optimized styling using Tailwind CSS for efficient and maintainable code.",
+    image: XYZ_Image,
+    category: "E-commerce",
+    github: "https://github.com/aydinhuseynov/React_Tailwind_project",
+    webapp: "https://aydinhuseynov.github.io/React_Tailwind_project/",
+  },
+  {
+    id: 2,
+    title: "CRM User Info",
+    date: "Jun 2021",
+    description:
+      "This is a React-based Customer Management Application that allows users to manage customer information efficiently. The application features a user-friendly interface for adding, viewing, and deleting customer records. It includes input validation and feedback mechanisms to ensure data integrity.",
+    image: CRM_Image,
+    category: "web-app",
+    github: "https://github.com/aydinhuseynov/MobileGroup-task",
+    webapp: "https://crm-user-info.netlify.app/",
+  },
+  {
+    id: 3,
     title: "Todo Web App",
     date: "Jun 2021",
     description:
       " A Todo Web App made with React JS, Redux, and Material UI. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the tasks and can create a new task. It has a calendar where users can see all the tasks on a particular date. It has a search bar where users can search for a particular task.",
     image:
       "https://camo.githubusercontent.com/84ac6ab6f378348ef28d8184062b7e9e3511a1252ae3966eaa49e8e998f732a7/68747470733a2f2f666972656261736573746f726167652e676f6f676c65617069732e636f6d2f76302f622f746f646f2d6170702d63386331392e61707073706f742e636f6d2f6f2f53637265656e73686f74253230283938292e706e673f616c743d6d6564696126746f6b656e3d33643335646366322d626666322d343730382d393031632d343232383866383332386633",
-    tags: ["React Js", "Local Storage", "AWS Auth", "Node JS"],
     category: "web app",
-    github: "https://github.com/rishavchanda/Todo-Web-App",
-    webapp: "https://rishav-react-todo.netlify.app/",
+    github: "https://github.com/aydinhuseynov/Todo_List",
+    webapp: "https://todo-list-store.netlify.app/",
+  },
+  {
+    id: 4,
+    title: "Weather App",
+    date: "Jun 2021",
+    description:
+      "React-based Weather App that provides real-time weather updates using an external API. Designed with a clean and intuitive UI, the application allows users to check the current weather conditions for any city worldwide.",
+    image: weather_app,
+    category: "web app",
+    github: "https://github.com/aydinhuseynov/weather-app",
+    webapp: "https://weather-app.netlify.apps/",
   },
 ];
