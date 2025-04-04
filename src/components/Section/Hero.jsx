@@ -5,7 +5,7 @@ import Typewriter from "typewriter-effect";
 import AboutImg from "../../images/AboutImg.jpg";
 import HeroBgAnimation from "./HeroBgAnimation";
 import { Tilt } from "react-tilt";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
   headContainerAnimation,
   headContentAnimation,
@@ -226,10 +226,10 @@ const HeroBg = styled.div`
           <HeroBgAnimation />
         </HeroBg>
 
-        <motion.div {...headContainerAnimation}>
+        <Motion.div {...headContainerAnimation}>
           <HeroInnerContainer>
             <HeroLeftContainer>
-              <motion.div {...headTextAnimation}>
+              <Motion.div {...headTextAnimation}>
                 <Title>
                   Hi, I am <br /> {Bio.name}
                 </Title>
@@ -245,23 +245,23 @@ const HeroBg = styled.div`
                     />
                   </Span>
                 </TextLoop>
-              </motion.div>
+              </Motion.div>
 
-              <motion.div {...headContentAnimation}>
+              <Motion.div {...headContentAnimation}>
                 <SubTitle>{Bio.description}</SubTitle>
-              </motion.div>
+              </Motion.div>
               <ResumeButton href={Bio.resume} target="_blank">Check My Resume </ResumeButton>
             </HeroLeftContainer>
 
             <HeroRightContainer>
-              <motion.div {...headContentAnimation}>
+              <Motion.div {...headContentAnimation}>
                 <Tilt>
                   <Img src={AboutImg} alt="Aydin Huseynov" />
                 </Tilt>
-              </motion.div>
+              </Motion.div>
             </HeroRightContainer>
           </HeroInnerContainer>
-        </motion.div>
+        </Motion.div>
       </HeroContainer>
     </div>
   );

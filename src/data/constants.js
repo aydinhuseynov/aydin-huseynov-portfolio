@@ -1,4 +1,3 @@
-import { title } from "framer-motion/client";
 import RMstoreImage from "../images/rm-shop.webp";
 import XYZ_Image from "../images/XYZ.png";
 import CRM_Image from "../images/CRM_Image.png";
