@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   display: flex;
@@ -49,7 +53,7 @@ const Desc = styled.div`
   }
 `;
 
-const ContactForm = styled.div`
+const ContactForm = styled.form`
   width: 95%;
   max-width: 600px;
   display: flex;
@@ -96,7 +100,7 @@ const ContactInputMessage = styled.textarea`
     border: 1px solid ${({ theme }) => theme.primary};
   }
 `;
-const ContactButton = styled.input`
+const ContactButton = styled.button`
   width: 100%;
   text-decoration: none;
   text-align: center;
@@ -108,9 +112,79 @@ const ContactButton = styled.input`
   color: ${({ theme }) => theme.text_primary};
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+  &:hover {
+    background: hsla(271, 100%, 45%, 1); 
+  }
 `;
 
 const Contact = () => {
+  const form = useRef();
+  const [formData, setFormData] = useState({
+    from_email: "",
+    from_name: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.from_email ||
+      !formData.from_name ||
+      !formData.subject ||
+      !formData.message
+    ) {
+        
+      toast.error("Please fill in all fields before sending!", {
+        position: "bottom-right",
+        autoClose: 3000,
+      });
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        "service_vjnvpej",
+        "template_m2jmmat",
+        form.current,
+        "D-A0--2oodFBS7QwP"
+      )
+      .then(
+        () => {
+          toast.success("Message sent successfully!", {
+            position: "bottom-right",
+            autoClose: 3000,
+          });
+
+          setIsSubmitting(true);
+          setTimeout(() => {
+            setIsSubmitting(false);
+          }, 2000);
+
+          setFormData({
+            from_email: "",
+            from_name: "",
+            subject: "",
+            message: "",
+          });
+
+          form.current.reset();
+        },
+        (error) => {
+          toast.error("Failed to send message: " + error.text, {
+            position: "bottom-right",
+            autoClose: 3000,
+          });
+        }
+      );
+  };
   return (
     <Container id="Contact">
       <Wrapper>
@@ -119,13 +193,37 @@ const Contact = () => {
           Let's get in touch! Whether you have a question, a project idea, or
           just want to say hi — I'm always open to connecting.
         </Desc>
-        <ContactForm>
+        <ToastContainer />
+        <ContactForm ref={form} onSubmit={handleSubmit}>
           <ContactTitle> Email Me 🚀 </ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" name="message" rows={4} />
-          <ContactButton type="submit" value="Send" />
+          <ContactInput
+            placeholder="Your Email"
+            name="from_email"
+            value={formData.from_email}
+            onChange={handleChange}
+          />
+          <ContactInput
+            placeholder="Your Name"
+            name="from_name"
+            value={formData.from_name}
+            onChange={handleChange}
+          />
+          <ContactInput
+            placeholder="Subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+          />
+          <ContactInputMessage
+            placeholder="Message"
+            name="message"
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+          />
+          <ContactButton type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send"}
+          </ContactButton>
         </ContactForm>
       </Wrapper>
     </Container>
