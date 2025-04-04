@@ -8,6 +8,7 @@ import Experince from "./components/Section/Experience";
 import Education from "./components/Section/Education";
 import StyledStarsCanvas from "./components/canvas/Stars";
 import Projects from "./components/Section/Projects";
+import Contact from "./components/Section/Contact";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -47,6 +48,7 @@ function App() {
           <Projects/>
           <Wrapper>
             <Education />
+            <Contact/>
           </Wrapper>
         </Body>
       </BrowserRouter>

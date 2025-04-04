@@ -4,6 +4,7 @@ import { education } from "../../data/constants";
 import EducationCard from "../cards/EducationCard";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import EarthCanvas from "../canvas/Earth";
 
 const Container = styled.div`
   display: flex;
@@ -53,21 +54,22 @@ const Desc = styled.div`
   }
 `;
 
- const Education = () => {
+const Education = () => {
   return (
     <Container id="Education">
       <Wrapper>
-        <Title>Education</Title>
-        <Desc style={{ marginBottom: "20px" }}>
-          My education has been a journey of self-discovery and growth. My
-          educational details are as follows.
-        </Desc>
-        <VerticalTimeline>
-          {education.map((education, index) => (
-            <EducationCard key={index} education={education} />
-          ))}
-        </VerticalTimeline>
+          <Title>Education</Title>
+          <Desc style={{ marginBottom: "20px" }}>
+            My education has been a journey of self-discovery and growth. My
+            educational details are as follows.
+          </Desc>
+          <VerticalTimeline>
+            {education.map((education, index) => (
+              <EducationCard key={index} education={education} />
+            ))}
+          </VerticalTimeline>
       </Wrapper>
+      <EarthCanvas/>
     </Container>
   );
 };

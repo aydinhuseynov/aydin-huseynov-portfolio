@@ -11,7 +11,8 @@ const Earth = () => {
 
 const EarthCanvas = () => {
   return (
-    <Canvas
+    <div style={{ marginTop: "20px" }}>
+     <Canvas
       shadows
       frameloop="demand"
       dpr={[1, 2]}
@@ -34,6 +35,7 @@ const EarthCanvas = () => {
         <Preload all />
       </Suspense>
     </Canvas>
+   </div>
   );
 };
 
