@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
@@ -27,13 +27,30 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   font-size: 1rem;
 `;
-const NavLogo = styled(Link)`
+
+const NavLogo = styled.div`
   width: 80%;
   padding: 0 6px;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 20px;
   text-decoration: none;
-  color: inherit;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .bracket {
+    color: #8a2be2;
+  }
+
+  .slash {
+    color: #8a2be2;
+  }
+
+  .surname {
+    color: white;
+    font-weight: bold;
+  }
 `;
 
 const NavItems = styled.ul`
@@ -126,7 +143,7 @@ const MobilMenu = styled.ul`
   z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
 `;
 
- const Navbar = () => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
 
@@ -134,7 +151,10 @@ const MobilMenu = styled.ul`
     <Nav>
       <NavbarContainer>
         <NavLogo to="/">
-          AH 
+          <span className="bracket">&lt;</span>
+          Aydin<span className="slash">/</span>
+          <span className="surname">Huseynov</span>
+          <span className="bracket">&gt;</span>
         </NavLogo>
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>
           {!isOpen ? (

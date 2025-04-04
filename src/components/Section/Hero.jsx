@@ -250,7 +250,7 @@ const HeroBg = styled.div`
               <motion.div {...headContentAnimation}>
                 <SubTitle>{Bio.description}</SubTitle>
               </motion.div>
-              <ResumeButton>Check My Resume </ResumeButton>
+              <ResumeButton href={Bio.resume} target="_blank">Check My Resume </ResumeButton>
             </HeroLeftContainer>
 
             <HeroRightContainer>
