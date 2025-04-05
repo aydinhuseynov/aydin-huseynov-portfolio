@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Bio } from "../../utils/data/constants";
+import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
 import AboutImg from "../../images/AboutImg.jpg";
 import HeroBgAnimation from "./HeroBgAnimation";
