@@ -38,6 +38,7 @@ const NavLogo = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+  user-select: none;  
 
   .bracket {
     color: #8a2be2;
@@ -51,7 +52,12 @@ const NavLogo = styled.div`
     color: white;
     font-weight: bold;
   }
+
+  @media (max-width: 768px) {
+    font-size: 14px;  
+  }
 `;
+
 
 const NavItems = styled.ul`
   width: 100%;
