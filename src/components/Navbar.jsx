@@ -159,7 +159,6 @@ const Navbar = () => {
         <NavLogo to="/">
           <span className="bracket">&lt;</span>
           Aydin<span className="slash">/</span>
-          <span className="surname">Huseynov</span>
           <span className="bracket">&gt;</span>
         </NavLogo>
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>

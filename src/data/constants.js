@@ -137,6 +137,27 @@ export const experiences = [
       "JavaScript",
     ],
   },
+  {
+    id: 1,
+    img: "https://indolike.com/storage/2024/12/Untitled-design-modified.png",
+    role: "Frontend Developer Intern - remote",
+    company: "IndoLike",
+    date: "April 2025 - Present",
+    desc: "Involved in the end-to-end development of interactive and responsive web interfaces using ReactJS and TailwindCSS. Gained hands-on experience in building modular components and implementing responsive UI designs. Followed best practices in code organization and UI/UX principles throughout the internship.",
+    skills: [
+      "ReactJS",
+    "TailwindCSS",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Git",
+    "GitHub",
+    "Responsive Design",
+    "UI/UX",
+    "Project Documentation",
+    "Content Creation"
+    ],
+  },
 ];
 
 export const education = [
