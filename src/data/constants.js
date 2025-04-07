@@ -10,7 +10,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/aydinhuseynov",
   resume:
-    "https://drive.google.com/file/d/1b-CpTJSQW6aXPfuzTn0EtowE_QHZhEct/view?usp=drive_link",
+    "https://drive.google.com/file/d/1_QrH8msRZ_PbY2Qn_a4Byu20jr-HKKZh/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/ayd%C4%B1n-h%C3%BCseynov-233bb5200/",
   insta: "https://www.instagram.com/anhsynv?igsh=MW9tdzBqbHVmY3E4eA==",
   facebook: "https://www.facebook.com/share/1AHoiZiaDu/",
