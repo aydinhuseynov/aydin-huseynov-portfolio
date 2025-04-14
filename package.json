@@ -1,8 +1,9 @@
 {
-  "name": "aydin_3d_portfolio",
+  "name": "aydin-huseynov-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://aydinhuseynov.github.io/aydin-huseynov-portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
